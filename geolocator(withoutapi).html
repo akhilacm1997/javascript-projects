@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p> Connect your livelocation</p>
+
+<button onclick="getLocation()">click </button>
+
+<p id="demo"></p>
+<div id="map"></div>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+  var lan=position.coords.latitude;
+  var lon=position.coords.longitude;
+//   $("#map").html("<iframe height='50%' width='100%' src='https://www.google.com/maps/embed/@"+position.coords.latitude+","+position.coords.longitude+",19z' name='iframe_a'></iframe>"); width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+}
+</script>
+
+</body>
+</html>
